@@ -10,9 +10,12 @@ function newRefuel(refuelSlots)
       local getRefuel = false
       if detail ~= nil then
         for _, name in ipairs(fuelType) do
-          if (name == detail.name) then
+          if name == detail.name then
+            local selectedSlot = t.getSelectedSlot()
+            t.select(slot)
             t.refuel()
             getRefuel = true
+            t.select(selectedSlot)
             break
           end
         end
