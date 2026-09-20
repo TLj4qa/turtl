@@ -4,7 +4,7 @@ for _, name in ipairs(fs.list(dir)) do
     fs.delete(fs.combine(dir, name))
 end
 
-local base = "https://raw.githubusercontent.com/TLj4qa/turtl/refs/heads/master/"
+local base = "https://raw.githubusercontent.com/TLj4qa/turtl/refs/heads/refuel/"
 
 local files = {
     {"lib/refuel.lua", "./lib/refuel.lua"},
