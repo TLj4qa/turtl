@@ -19,6 +19,7 @@ function newHeightMapReader(heightMapFilePath)
               coroutine.yield(string.sub(row, i, i))
             end
             row = file.readLine()
+
             if row ~= '' then
               coroutine.yield('TL')
             end
@@ -26,10 +27,12 @@ function newHeightMapReader(heightMapFilePath)
             for i = 1, string.len(row), 1 do
               coroutine.yield(string.sub(row, i, i))
             end
+            row = file.readLine()
+
             if row ~= '' then
-              row = file.readLine()
+              coroutine.yield('TR')
             end
-            coroutine.yield('TR')
+            
           end
         end
         rightToLeft = not rightToLeft

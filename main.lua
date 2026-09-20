@@ -12,8 +12,6 @@ refuelO:refuel()
 
 local mapReader = newHeightMapReader(heightMap)
 local turtleController = newTurtleController(config)
-local result = ""
 for symbol in mapReader.walk() do
-  result = result .. symbol
+  turtleController.act(symbol)
 end
-print(result)
