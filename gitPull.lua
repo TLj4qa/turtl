@@ -13,9 +13,9 @@ end
 local base = "https://raw.githubusercontent.com/TLj4qa/turtl/refs/heads/master/"
 
 local files = {
-    {"lib/refuel.lua", "/lib/itemCalculator.lua"},
-    {"gitPull.lua", '/gitPull.lua'},
-    {"main.lua", "/main.lua"}
+    {"lib/refuel.lua", "./lib/itemCalculator.lua"},
+    {"gitPull.lua", './gitPull.lua'},
+    {"main.lua", "./main.lua"}
 }
 
 for _, file in ipairs(files) do
@@ -24,7 +24,7 @@ for _, file in ipairs(files) do
 
   print("Downloading " .. localPath)
 
-  if not shell.run("wget", base .. remote, dir .. localPath) then
+  if not shell.run("wget", base .. remote, localPath) then
     printError("Failed: " .. localPath)
     return
   end
