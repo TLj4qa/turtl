@@ -42,7 +42,7 @@ function newTurtleController(configManager, turtleNavigator)
     if block == 'minecraft:air' then
       return
     end
-    local itemDetail = self.navigator:getItemDetail(self.navigator:getSelectedSlot())
+    local itemDetail = turtle.getItemDetail(turtle.getSelectedSlot())
     if itemDetail == nil or itemDetail.name ~= block then
       self.selectNecessary(command, block)
     end
@@ -52,7 +52,7 @@ function newTurtleController(configManager, turtleNavigator)
   function self.selectNecessary(command, block)
     for i = 1, 16, 1 do
       self.navigator:select(i)
-      local itemDetail = self.navigator:getItemDetail(self.navigator:getSelectedSlot())
+      local itemDetail = turtle.getItemDetail(turtle.getSelectedSlot())
       if itemDetail ~= nil and itemDetail.name == block then
         return
       end

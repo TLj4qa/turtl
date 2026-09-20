@@ -56,4 +56,5 @@ function newTurtleNavigator(tort)
   function self:getCurrentDirection()
     return self.direction
   end
+  return self
 end
