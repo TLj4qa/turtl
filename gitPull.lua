@@ -8,6 +8,7 @@ local base = "https://raw.githubusercontent.com/TLj4qa/turtl/refs/heads/refuel/"
 
 local files = {
     {"lib/Refuel.lua", "./lib/Refuel.lua"},
+    {"lib/TurtleNavigator.lua", "./lib/TurtleNavigator.lua"},
     {"lib/HeightMapReader.lua", "./lib/HeightMapReader.lua"},
     {"lib/TurtleController.lua", "./lib/TurtleController.lua"},
     {"lib/ConfigManager.lua", "./lib/ConfigManager.lua"},
