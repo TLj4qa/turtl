@@ -1,5 +1,7 @@
-for _, path in ipairs(fs.list("/")) do
-  fs.delete("/" .. path)
+local dir = shell.dir()
+
+for _, name in ipairs(fs.list(dir)) do
+    fs.delete(fs.combine(dir, name))
 end
 
 local dirTree = {"lib"}
@@ -22,7 +24,7 @@ for _, file in ipairs(files) do
 
   print("Downloading " .. localPath)
 
-  if not shell.run("wget", base .. remote, localPath) then
+  if not shell.run("wget", base .. remote, dir .. localPath) then
     printError("Failed: " .. localPath)
     return
   end
