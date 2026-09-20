@@ -46,12 +46,12 @@ function newTurtleController(configManager, turtleNavigator)
     if itemDetail == nil or itemDetail.name ~= block then
       self.selectNecessary(command, block)
     end
-    self.navigator:placeDown()
+    turtle.placeDown()
   end
 
   function self.selectNecessary(command, block)
     for i = 1, 16, 1 do
-      self.navigator:select(i)
+      turtle.select(i)
       local itemDetail = turtle.getItemDetail(turtle.getSelectedSlot())
       if itemDetail ~= nil and itemDetail.name == block then
         return
@@ -65,12 +65,13 @@ function newTurtleController(configManager, turtleNavigator)
     self.selectNecessary(command, block)
   end
 
-  function self.goToStock(position, direction)
+  function self.goToStock(currentPosition, currentDirection)
     local backStack = {}
 
     while currentDirection ~= 3 do
       self.navigator:turnLeft()
       table.insert(backStack, self.navigator.turnRight)
+      currentDirection = self.navigator:getCurrentDirection()
     end
 
     while currentPosition[1] > 0 do
@@ -82,6 +83,7 @@ function newTurtleController(configManager, turtleNavigator)
     while currentDirection ~= 4 do
       self.navigator:turnRight()
       table.insert(backStack, self.navigator.turnLeft)
+      currentDirection = self.navigator:getCurrentDirection()
     end
 
     while currentPosition[2] < 0 do
