@@ -5,6 +5,9 @@ function newRefuel(refuelSlots)
   local self = {}
   local fuelType = {"minecraft:coal", "minecraft:charcoal", "minecraft:coalblock", "minecraft:lava_bucket"}
   function self:refuel()
+    if t.getFuelLevel() > 300 then
+      return 0
+    end
     for _, slot in ipairs(refuelSlots) do
       local detail = t.getItemDetail(slot)
       local getRefuel = false
@@ -21,7 +24,7 @@ function newRefuel(refuelSlots)
         end
       end
       if getRefuel then
-        print('im get fuel!')
+        print(("my fuel level = %d").format(t.getFuelLevel()))
         break
       end
     end
