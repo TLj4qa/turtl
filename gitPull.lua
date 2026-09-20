@@ -1,19 +1,18 @@
-for _, path in ipairs(fs.list("/")) do
-  fs.delete("/" .. path)
+local dir = shell.dir()
+
+for _, name in ipairs(fs.list(dir)) do
+    fs.delete(fs.combine(dir, name))
 end
 
-local dirTree = {"lib"}
-
-for _, dir in ipairs(dirTree) do
-  fs.makeDir(dir)
-end
-
-local base = "https://raw.githubusercontent.com/TLj4qa/turtl/refs/heads/master/"
+local base = "https://raw.githubusercontent.com/TLj4qa/turtl/refs/heads/refuel/"
 
 local files = {
-    {"lib/refuel.lua", "/lib/itemCalculator.lua"},
-    {"gitPull.lua", '/gitPull.lua'},
-    {"main.lua", "/main.lua"}
+    {"lib/Refuel.lua", "./lib/Refuel.lua"},
+    {"lib/HeightMapReader.lua", "./lib/HeightMapReader.lua"},
+    {"lib/TurtleController.lua", "./lib/TurtleController.lua"},
+    {"lib/ConfigManager.lua", "./lib/ConfigManager.lua"},
+    {"gitPull.lua", './gitPull.lua'},
+    {"main.lua", "./main.lua"}
 }
 
 for _, file in ipairs(files) do
