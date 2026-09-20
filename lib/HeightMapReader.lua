@@ -8,12 +8,12 @@ function newHeightMapReader(heightMapFilePath)
     local file = fs.open(heightMapFilePath, "r")
     return coroutine.wrap(function()
       local row = file.readLine()
-      local arabian = false
+      local rightToLeft = false
       while row ~= nil do
         if row == '' then
           coroutine.yield('UP')
         else
-          if arabian then
+          if rightToLeft then
             for i = string.len(row), 1, -1 do
               coroutine.yield(string.sub(row, i, i))
             end
@@ -24,8 +24,8 @@ function newHeightMapReader(heightMapFilePath)
             end
             coroutine.yield('TR')
           end
-          arabian = not arabian
         end
+        rightToLeft = not rightToLeft
         row = file.readLine()
       end
       file.close()
