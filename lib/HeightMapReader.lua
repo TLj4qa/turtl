@@ -17,10 +17,12 @@ function newHeightMapReader(heightMapFilePath)
             for i = string.len(row), 1, -1 do
               coroutine.yield(string.sub(row, i, i))
             end
+            coroutine.yield('TL')
           else
             for i = 1, string.len(row), 1 do
               coroutine.yield(string.sub(row, i, i))
             end
+            coroutine.yield('TR')
           end
           arabian = not arabian
         end
@@ -29,4 +31,5 @@ function newHeightMapReader(heightMapFilePath)
       file.close()
     end)
   end
+  return self
 end
