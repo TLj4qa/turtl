@@ -4,11 +4,11 @@ function newTurtleController(configManager)
 
   function self.act(command)
     if command == 'UP' then
-        self.up()
+      self.up()
     elseif command == 'TL' then
-        self.tl()
+      self.tl()
     elseif command == 'TR' then
-        self.tr()
+      self.tr()
     else
       self.place(command)
     end
