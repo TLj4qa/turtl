@@ -7,8 +7,19 @@ function newRefuel(refuelSlots)
   function self:refuel()
     for _, slot in ipairs(refuelSlots) do
       local detail = t.getItemDetail(slot)
+      local getRefuel = false
       if detail ~= nil then
-        print(detail.name)
+        for _, name in ipairs(fuelType) do
+          if (name == detail.name) then
+            t.refuel()
+            getRefuel = true
+            break
+          end
+        end
+      end
+      if getRefuel then
+        print('im get fuel!')
+        break
       end
     end
   end
