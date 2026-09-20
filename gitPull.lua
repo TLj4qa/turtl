@@ -7,7 +7,7 @@ end
 local base = "https://raw.githubusercontent.com/TLj4qa/turtl/refs/heads/master/"
 
 local files = {
-    {"lib/refuel.lua", "./lib/itemCalculator.lua"},
+    {"lib/refuel.lua", "./lib/refuel.lua"},
     {"gitPull.lua", './gitPull.lua'},
     {"main.lua", "./main.lua"}
 }
