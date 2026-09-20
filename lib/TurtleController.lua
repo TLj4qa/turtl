@@ -102,14 +102,19 @@ function newTurtleController(configManager, turtleNavigator)
   end
 
   function self.recharge()
-
+    -- todo recharge
+    -- todo push recharge to Refuel
   end
 
   function self.returnToWork(backStack)
+    self.navigator:turnLeft()
+    self.navigator:turnLeft()
     while #backStack > 0 do
       local action = table.remove(backStack)
       action(self.navigator)
     end
+    self.navigator:turnLeft()
+    self.navigator:turnLeft()
   end
 
   return self
