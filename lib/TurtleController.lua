@@ -108,7 +108,7 @@ function newTurtleController(configManager, turtleNavigator)
   function self.returnToWork(backStack)
     while #backStack > 0 do
       local action = table.remove(backStack)
-      action()
+      action(self.navigator)
     end
   end
 
