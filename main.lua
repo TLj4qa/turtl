@@ -21,6 +21,7 @@ for str in map.readLine do
         tmpMap.writeLine(page[i])
       end
     end
+    tmpMap.writeLine('')
     page = {}
     upsideDown = not upsideDown
   else
@@ -32,12 +33,11 @@ map.close()
 tmpMap.close()
 
 local config = newConfigManager(dictionaryPath)
-local heightMapReader = newHeightMapReader('tmp.map')
 
 local refuelO = newRefuel({13, 14, 15, 16})
 refuelO:refuel()
 
-local mapReader = newHeightMapReader(heightMap)
+local mapReader = newHeightMapReader('tmp.map')
 local turtleController = newTurtleController(config)
 for symbol in mapReader.walk() do
   turtleController.act(symbol)
