@@ -3,17 +3,13 @@ local t = turtle
 -- table refuelSlots {1, 2, 3...}
 function newRefuel(refuelSlots)
   local self = {}
-  local fuelType = {
-    "minecraft:coal",
-    "minecraft:charcoal",
-    "minecraft:coalblock",
-    "minecraft:lava_bucket"
-  }
+  local fuelType = {"minecraft:coal", "minecraft:charcoal", "minecraft:coalblock", "minecraft:lava_bucket"}
   function self:refuel()
     for _, slot in ipairs(refuelSlots) do
       local detail = t.getItemDetail(slot)
-      print(detail.name)
-      
+      if detail ~= nil then
+        print(detail.name)
+      end
     end
   end
   return self
