@@ -14,7 +14,7 @@ for str in map.readLine do
   if str == '' then
     if upsideDown then
       for i = #page, 1, -1 do
-        tmpMap.writeLine(page[i])
+        tmpMap.writeLine(string.reverse(page[i]))
       end
     else
       for i = 1, #page, 1 do
